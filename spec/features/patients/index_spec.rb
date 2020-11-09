@@ -14,7 +14,7 @@ describe 'As a visitor' do
 
     it "I see the names of all patients listed from oldest to youngest" do
       visit "/patients"
-
+      
       expect("#{@charlie.name}").to appear_before("#{@denny.name}")
 
       within '#all-patients' do
