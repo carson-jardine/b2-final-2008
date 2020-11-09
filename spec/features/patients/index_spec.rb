@@ -19,13 +19,10 @@ describe 'As a visitor' do
       visit "/patients"
 
       expect("#{@charlie.name}").to appear_before("#{@denny.name}")
+      expect("#{@denny.name}").to appear_before("#{@katie.name}")
+      expect("#{@katie.name}").to appear_before("#{@zola.name}")
 
-      within '#all-patients' do
-        expect(page.all('li')[0]).to have_content("#{@charlie.name}")
-        expect(page.all('li')[1]).to have_content("#{@denny.name}")
-        expect(page.all('li')[2]).to have_content("#{@katie.name}")
-        expect(page.all('li')[3]).to have_content("#{@zola.name}")
-      end
+      expect("#{@katie.name}").to_not appear_before("#{@charlie.name}")
     end
   end
 end
