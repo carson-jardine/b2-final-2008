@@ -1,10 +1,10 @@
-<h1><%= @doctor.name %></h1> <br>
-<h3><%= @doctor.specialty %></h3> <br>
-<h3><%= @doctor.university %></h3> <br>
+<h1>Doctor <%= @doctor.name %></h1> <br>
+<h3>Specialty: <%= @doctor.specialty %></h3> <br>
+<h3>Studied at: <%= @doctor.university %></h3> <br>
 
-<p>Hospital: <%= @doctor.hospital.name %></p>
+<h4>Hospital: <%= @doctor.hospital.name %></h4>
 
-<p><%= @doctor.name %>'s Patients</p>
+<h3><%= @doctor.name %>'s Patients:</h3>
 <% @patients.each do |patient| %>
   <section id= "patient-<%= patient.id %>">
     <%= patient.name %>
