@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'As a visitor' do
-  describe 'When I visit a doctors show page' do
+  describe 'When I visit the patients index page' do
     before :each do
       @grey_sloan = Hospital.create!(name: "Grey Sloan Memorial")
       @meredith = @grey_sloan.doctors.create!(name: "Meredith Gray", specialty: "General Surgery", university: "Dartmouth College")
@@ -14,7 +14,7 @@ describe 'As a visitor' do
 
     it "I see the names of all patients listed from oldest to youngest" do
       visit "/patients"
-      
+
       expect("#{@charlie.name}").to appear_before("#{@denny.name}")
 
       within '#all-patients' do
@@ -23,7 +23,6 @@ describe 'As a visitor' do
         expect(page.all('li')[2]).to have_content("#{@katie.name}")
         expect(page.all('li')[3]).to have_content("#{@zola.name}")
       end
-
     end
   end
 end
